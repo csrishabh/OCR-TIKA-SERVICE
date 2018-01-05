@@ -66,11 +66,11 @@ public class TikaParserController {
 		long startTime = System.currentTimeMillis();
 		System.out.println("In parseDocument in controller");
 		Document document = new Document();
-		if(!filestream.getOriginalFilename().substring(filestream.getOriginalFilename().lastIndexOf('.')+1).equalsIgnoreCase("PDF")){
+		/*if(!filestream.getOriginalFilename().substring(filestream.getOriginalFilename().lastIndexOf('.')+1).equalsIgnoreCase("PDF")){
 			
 			response.setStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE.value());
 		}
-		else{
+		else{*/
 		FileInputStream inputStream = textExtractionService.parseDocument(filestream ,document);
 		response.setContentType("Application/zip");
 		response.setHeader("Content-Disposition", "attachment; filename=\"" +
@@ -81,7 +81,7 @@ public class TikaParserController {
 		long stopTime = System.currentTimeMillis();
 		long elapsedTime = stopTime - startTime;
 		LOGGER.info("text extraction completed..."+elapsedTime);
-		}
+		//}
 	}
 	
 	
