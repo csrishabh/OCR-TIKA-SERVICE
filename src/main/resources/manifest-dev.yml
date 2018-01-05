@@ -1,0 +1,7 @@
+## Cloud Foundry deployment manifest
+---
+inherit: manifest-base.yml
+applications:
+- name: ocr-tika-service
+  env:
+    CONTRAST_SERVER: dev

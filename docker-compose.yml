@@ -1,0 +1,20 @@
+version: "3"
+services:
+  web:
+    image: csrishabh/tika_service:v2
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 4096M
+    ports:
+      - "9099:9099"
+    networks:
+     - webnet
+networks:
+  webnet:   
+            
+      
+      

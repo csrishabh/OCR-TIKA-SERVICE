@@ -1,0 +1,39 @@
+<<<<<<< HEAD
+# Build files
+*.class
+**/target/
+/target
+*/target/*
+build/
+*.log
+.gradle/
+
+# IDE files
+.classpath
+.project
+.settings
+.settings/
+*.iml
+.idea/
+/bin/
+=======
+ # Build files
+*.class
+**/target/
+/target
+*/target/*
+build/
+*.log
+.gradle/
+
+# IDE files
+.classpath
+.project
+.settings
+.settings/
+*.iml
+.idea/
+/bin/
+
+*.log
+>>>>>>> e12cd4cfc5b01ada5bbdd696bb7602005bf92989

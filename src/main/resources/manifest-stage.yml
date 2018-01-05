@@ -1,0 +1,10 @@
+## Cloud Foundry deployment manifest
+---
+inherit: manifest-base.yml
+applications:
+- name: ocr-tika-service
+  host: ocr-tika-service-stage
+  memory: 3GB
+  instances: 1
+  env:
+    CONTRAST_SERVER: stage

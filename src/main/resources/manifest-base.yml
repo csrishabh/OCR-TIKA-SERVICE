@@ -1,0 +1,12 @@
+---
+memory: 3GB
+instances: 1
+disk_quota: 2G
+timeout: 180
+services:
+ - appdynamics
+ - config-server
+ - message-broker
+env:
+   CF_TARGET: https://api.sys.foundry.mrll.com
+buildpack: javelin-java-buildpack

@@ -1,0 +1,18 @@
+## Cloud Foundry deployment manifest
+---
+applications:
+- name: ocr-tika-service
+  host: ocr-tika-service-qa
+  memory: 1024M
+  path: ./build/libs/document-parser-service.jar
+  
+  services:
+      - service-registry
+      - message-broker
+      - api-config-server
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    CF_TARGET: https://api.sys.javelinmc.com
+    EUREKA_ROUTE_NAME: ocr-tika-service-qa
+    CF_DOMAIN: .apps.javelinmc.com
+  buildpack: java_buildpack_offline

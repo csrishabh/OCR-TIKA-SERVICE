@@ -1,0 +1,83 @@
+info:
+  description: "Text Extraction Service Implementation"
+  apiDocumentation: "TBD"
+
+server:
+  port: 9099
+
+security:
+  basic:
+    enabled: false
+
+javelin:
+  appKey: TIKAPARSE
+  common:
+    web:
+      config:
+        swagger:
+          controllerPackage: com.mrll.javelin.tikaparser.controller
+          apiName: Text Extraction Api-testing end point
+          apiVersion: v1
+          apiDescription: API for text extraction implementation(testing end point)
+
+
+
+message:
+  documentQueue: "jav-textextact-queue"
+  routingKey: "OCR_TIKA"
+
+
+
+settings:
+ blobDownloadUrl:
+   http://AZUREBLOBDOWNLOAD-SERVICE.apps.foundry.mrll.com/javelin/api/blob/download
+ blobUploadServicedUrl:
+   http://AZUREBLOBUPLOAD-SERVICE.apps.foundry.mrll.com/javelin/api/blob/upload
+ docMetadataServicedUrl:
+   http://doc-metadata-service.apps.foundry.mrll.com/javelin/api/core/metadata/updateDocForm
+ valifileformats:
+   doc,docx,pdf,xlsx,txt,xml,ocr,xls,yml,yaml
+
+
+eureka:
+  instance:
+    securePortEnabled: false
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+  client:
+    registryFetchIntervalSeconds: 5
+
+hystrix:
+  command:
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 3000
+
+  stream:
+    amqp:
+      enabled: false
+
+endpoints:
+  health:
+    sensitive: false
+management:
+  security:
+    enabled: false
+  health:
+    rabbit:
+      enabled: false
+
+logging:
+  level:
+    com.netflix.discovery.DiscoveryClient: WARN
+    
+multipart:
+ enabled: true
+ file-size-threshold: 20MB
+ max-file-size: -1
+ max-request-size: -1    
+
+---
+spring:
+  profiles: cloud
+
