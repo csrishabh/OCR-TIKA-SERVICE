@@ -82,15 +82,6 @@ public class TikaParserController {
 		long elapsedTime = stopTime - startTime;
 		LOGGER.info("text extraction completed..."+elapsedTime);
 		}
-		/*JSONObject resp = new JSONObject();
-		resp.put("text", document.getRawText());
-		//resp.put("language", d.getLanguageName());
-		resp.put("name", document.getDocId());
-		resp.put("size", document.getSize());*/
-		
-		//resp.put("elapsedTime", elapsedTime);
-		
-		//return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
 	
 	
